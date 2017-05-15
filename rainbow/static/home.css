@@ -1,0 +1,166 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fafafa;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+p {
+  margin: 0;
+  line-height: 50px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cardio {
+  position: absolute;
+  right: 0;
+  margin: 5px;
+  color: #424242;
+}
+
+.parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.header {
+  font-size: 42px;
+  color: #424242;
+  padding: 20px;
+}
+
+i.computer {
+  font-size: 42px;
+  color: #424242;
+  vertical-align: -8px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.wizard {
+  display: inline;
+  color: #6534ff;
+}
+
+.currently-working {
+  font-size: 0.5em;
+  display: inline;
+  color: #7a7a7a;
+  z-index: 2;
+}
+
+.button {
+  text-decoration: none;
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: -5px;
+  transform-origin: center;
+  transition-duration: 100ms;
+}
+
+.button:hover {
+  position: relative;
+  transform: scale(1.42);
+  transition-duration: 100ms;
+  box-shadow: 0 0.5em 1em rgba(0,0,0,0.2);
+  background-color: #fafafa;
+  z-index: 2;
+}
+
+.overlay {
+  display: none;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  opacity: .90;
+  font-size: 100px;
+  color: #fafafa;
+  line-height: 118px;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.overlay .parent {
+  margin: 20px;
+}
+
+.message {
+  padding: 20px;
+}
+
+.shabalaba a {
+  font-size: 0.5em;
+  display: inline;
+  color: #7a7a7a;
+  z-index: 2;
+}
+
+.shabalaba {
+  margin-top: -25px;
+  text-align: center;
+}
+
+.tamil {
+  text-align: center;
+}
+
+.tamil:hover {
+  position: relative;
+  z-index: 3;
+  color: #fafafa;
+}
+
+.uniqna {
+  display: inline;
+  font-size: 1em;
+}
+
+.uniqna-u {
+  color: #F44336;
+}
+
+.uniqna-n1 {
+  color: #FF9800;
+}
+
+.uniqna-i {
+  color: #FFE082;
+}
+
+.uniqna-q {
+  color: #36CC64;
+}
+
+.uniqna-n2 {
+  color: #29B6F6;
+}
+
+.uniqna-a {
+  color: #3F51B5;
+}
+
+@media (max-width: 479px) and (min-width: 320px) {
+  .header {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 320px) {
+  .header {
+    font-size: 30px;
+  }
+}

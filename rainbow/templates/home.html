@@ -1,1 +1,55 @@
-Hello, world!
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>My internet abode - Jeremy Philemon</title>
+
+    <!-- Stylesheet -->
+    {% load static %}
+    <link href="{% static "home.css" %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="cardio">
+      <img src="https://jeremyphilemon.github.io/blog/images/Heart.svg">
+    </div>
+
+    <div class="parent">
+      <div class="header">
+          <p><strong>A <i class="material-icons computer">computer</i> <a class="button" v-on:mouseover="changeText('vitcc')">undergrad</a>,</strong></p>
+          <p><strong>and a </strong><strong class="wizard">computational wizard</strong></p>
+          <p><strong>from Chennai, India.</strong></p>
+          <div class="currently-working">
+            <p>I'm currently working on
+              <a href="https://www.uniqna.com" class="button" v-on:mouseover="changeText('uniqna')">
+                  <span class="uniqna uniqna-u">u</span><span class="uniqna uniqna-n1">n</span><span class="uniqna uniqna-i">i</span><span class="uniqna uniqna-q">q</span><span class="uniqna uniqna-n2">n</span><span class="uniqna uniqna-a">a</span>
+              </a>🍃
+            </p>
+          </div>
+          <div class="shabalaba">
+              <a href="https://github.com/jeremyphilemon" class="tamil git" v-on:mouseover="changeText('github')">அ</a>
+              <a href="https://instagram.com/jeremyphilemon98" class="tamil insta" v-on:mouseover="changeText('insta')">இ</a>
+              <a href="https://goo.gl/uhj4uF" class="tamil contact" v-on:mouseover="changeText('blog')">உ</a>
+              <a href="/insidemyhead" class="tamil blog" v-on:mouseover="changeText('contact')">எ</a>
+          </div>
+      </div>
+    </div>
+
+    <div class="overlay" v-bind:style="{ background: bgcolor, textAlign: textalign}">
+      <div class="parent" v-bind:style="{ alignItems: align}">
+          [ message ]
+      </div>
+    </div>
+
+    <!-- jQuery, Vue & I -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="{% static "home.js" %}"></script>
+  </body>
+</html>

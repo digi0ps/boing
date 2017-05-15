@@ -18,5 +18,4 @@ from django.contrib import admin
 from rainbow import views
 
 urlpatterns = [
-    url(r'^$', views.home),
 ]
