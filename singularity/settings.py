@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*47q7sli(1g)v1-5ab9z+be+@8m#cu50z54(@_4t-46#z-0_@0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 PREPEND_WWW = False
@@ -77,8 +77,10 @@ WSGI_APPLICATION = 'singularity.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': 'e0a9664978642cb4b25f79551df7d2b4',
     }
 }
 
