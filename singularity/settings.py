@@ -81,6 +81,8 @@ DATABASES = {
         'NAME': 'django',
         'USER': 'django',
         'PASSWORD': 'e0a9664978642cb4b25f79551df7d2b4',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -109,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 

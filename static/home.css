@@ -8,6 +8,7 @@ body {
   height: 100%;
   margin: 0;
   overflow: hidden;
+  cursor: default;
 }
 
 p {
@@ -122,6 +123,13 @@ i.computer {
   position: relative;
   z-index: 3;
   color: #fafafa;
+}
+
+.days {
+  position: absolute;
+  padding-left: 2px;
+  font-size: 10px;
+  color: #7a7a7a;
 }
 
 .uniqna {
