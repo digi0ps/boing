@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*47q7sli(1g)v1-5ab9z+be+@8m#cu50z54(@_4t-46#z-0_@0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 PREPEND_WWW = False
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rainbow',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -74,17 +74,28 @@ WSGI_APPLICATION = 'singularity.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'django',
-        'USER': 'django',
-        'PASSWORD': 'e0a9664978642cb4b25f79551df7d2b4',
-        'HOST': 'localhost',
-        'PORT': '',
+if '42' not in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'django',
+            'USER': 'django',
+            'PASSWORD': 'e0a9664978642cb4b25f79551df7d2b4',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'boing',
+            'USER': 'moderator',
+            'PASSWORD': 'password',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
 
 
 # Password validation
