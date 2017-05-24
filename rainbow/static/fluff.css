@@ -12,7 +12,6 @@ html, body {
   padding-left: 2px;
   font-size: 10px;
   color: #7a7a7a;
-  font-weight: normal;
 }
 
 .card {
@@ -39,6 +38,10 @@ html, body {
 
 hr {
   width: 30px;
+}
+
+[v-cloak] {
+  display: none;
 }
 
 @media (min-width: 479px) {

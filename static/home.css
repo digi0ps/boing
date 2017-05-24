@@ -3,13 +3,15 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Product Sans', arial, sans-serif;
+  font-weight: 400;
   background-color: #fafafa;
   height: 100%;
   margin: 0;
   overflow: hidden;
   cursor: default;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 p {
@@ -160,6 +162,10 @@ i.computer {
 
 .uniqna-a {
   color: #3F51B5;
+}
+
+[v-cloak] {
+  display: none;
 }
 
 @media (max-width: 479px) and (min-width: 320px) {

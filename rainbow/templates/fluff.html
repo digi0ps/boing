@@ -19,20 +19,19 @@
 
   <body>
 
-    <div class="days">
-      <strong>[ daysalive ] π [ pwning ]</strong>
+    <div class="days" v-cloak>
+      [ daysalive ] π [ pwning ]
     </div>
-
 
     {% for x in stories %}
     <div class="card">
-      <div class="date"> {{ x.createdTime|date:"d M, Y" }} </div>
-      <div class="title">
-        {{ x.title }}
-      </div>
-      <div class="scribblings">
-          {{ x.story|safe }}
-      </div>
+        <div class="date"> {{ x.createdTime|date:"d M, Y" }} </div>
+        <div class="title">
+          {{ x.title }}
+        </div>
+        <div class="scribblings">
+            {{ x.story|safe }}
+        </div>
     </div>
     <hr>
     {% endfor %}
@@ -47,6 +46,7 @@
     <!-- jQuery, Vue & I -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     <script src="{% static "fluff.js" %}"></script>
   </body>
 </html>
