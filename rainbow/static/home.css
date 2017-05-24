@@ -9,6 +9,7 @@ body {
   margin: 0;
   overflow: hidden;
   cursor: default;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 p {

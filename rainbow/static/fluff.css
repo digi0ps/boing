@@ -4,6 +4,7 @@ html, body {
   height: 100%;
   color: #424242;
   margin: 0;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .days {
@@ -11,6 +12,7 @@ html, body {
   padding-left: 2px;
   font-size: 10px;
   color: #7a7a7a;
+  font-weight: normal;
 }
 
 .card {
@@ -23,7 +25,7 @@ html, body {
 .title {
   font-size: 60px;
   color: #424242;
-  font-weight: 900;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
