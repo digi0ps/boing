@@ -10,8 +10,9 @@ body {
   margin: 0;
   overflow: hidden;
   cursor: default;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  -webkit-font-feature-settings: "kern" 1;
 }
 
 p {
