@@ -40,6 +40,16 @@ hr {
   width: 30px;
 }
 
+.card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.caption {
+    font-size: 0.75em;
+    color: gray;
+}
+
 [v-cloak] {
   display: none;
 }
