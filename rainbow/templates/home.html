@@ -6,15 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>My internet abode - Jeremy Philemon</title>
-
     <!-- Stylesheet -->
-    {% load static %}
-    {% load pipeline %}
-    {% stylesheet 'home' %}
+    {% load static %}{% load pipeline %}{% stylesheet 'home' %}
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500|Product+Sans:400" rel="stylesheet">
+    {% include "favicon.html" %}
   </head>
 
   <body>
