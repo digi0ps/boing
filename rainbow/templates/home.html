@@ -9,7 +9,8 @@
 
     <!-- Stylesheet -->
     {% load static %}
-    <link href="{% static "home.css" %}" rel="stylesheet">
+    {% load pipeline %}
+    {% stylesheet 'home' %}
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -55,6 +56,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="{% static "home.js" %}"></script>
+    {% javascript 'home' %}
   </body>
 </html>

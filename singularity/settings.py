@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*47q7sli(1g)v1-5ab9z+be+@8m#cu50z54(@_4t-46#z-0_@0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 PREPEND_WWW = False
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rainbow',
+    'pipeline',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -136,3 +137,41 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+PIPELINE = {
+    'STYLESHEETS': {
+        'home': {
+            'source_filenames': (
+              'home.css',
+            ),
+            'output_filename': 'home.css',
+        },
+        'fluff': {
+            'source_filenames': (
+              'fluff.css',
+            ),
+            'output_filename': 'fluff.css',
+        },
+    },
+    'JAVASCRIPT': {
+        'home': {
+            'source_filenames': (
+              'home.js',
+            ),
+            'output_filename': 'home.js',
+        },
+        'fluff': {
+            'source_filenames': (
+              'fluff.js',
+            ),
+            'output_filename': 'fluff.js',
+        },
+    }
+}
