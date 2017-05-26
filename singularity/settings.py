@@ -26,7 +26,7 @@ SECRET_KEY = '*47q7sli(1g)v1-5ab9z+be+@8m#cu50z54(@_4t-46#z-0_@0'
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-PREPEND_WWW = True
+PREPEND_WWW = False
 
 
 # Application definition
