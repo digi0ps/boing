@@ -29,5 +29,5 @@ var daysalive  = new Vue({
   }
 });
 
-window.sr = ScrollReveal();
+window.sr = ScrollReveal({reset: true, viewFactor: 0.15,});
 sr.reveal('.card');
