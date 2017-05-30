@@ -56,7 +56,19 @@ a {
 
 .caption {
     font-size: 0.75em;
-    color: gray;
+    color: #7a7a7a;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.disclaimer {
+  color: #7a7a7a;
+  padding: 25px;
 }
 
 [v-cloak] {
