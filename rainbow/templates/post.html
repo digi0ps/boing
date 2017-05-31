@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>my internet abode - Jeremy Philemon</title>
+    <title>{{ story.title }}</title>
     <!-- Stylesheet -->
     {% load static %}{% load pipeline %}{% stylesheet 'fluff' %}
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -13,6 +13,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,800" rel="stylesheet">
     {% include "favicon.html" %}
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ story.title }}"/>
+    <meta property="og:description" content="{{ story.story|truncatechars:500|striptags }}"/>
+    <meta property="og:image" content="{{ story.image }}"/>
+
   </head>
 
   <body>
@@ -21,35 +26,19 @@
       [ daysalive ] π [ pwning ]
     </div>
 
-    <div class="intro card">
-     Hey, I'm Jeremy.<br>
-     I've been doing some insane shizz since '98<br>
-     And this long? page<br>
-     is an attempt towards documenting them.<br><br>
-     (Scroll below)
-    </div>
-
-    <div class="intro disclaimer card">
-      Disclaimer: I prefer tabs over spaces,
-      three dots for an ellipsis,
-      and oxford commas k?
-    </div>
-
-    {% for x in stories %}
     <div class="card">
-        <div class="date"> {{ x.createdTime|date:"d M, Y" }}
+        <div class="date"> {{ story.createdTime|date:"d M, Y" }}
           <i class="material-icons favorite">favorite</i><span class="favoriteNumber">42</span>
           <i class="material-icons comments">question_answer</i><span class="commentsNumber">73</span>
         </div>
         <div class="title">
-          <a href="{% url 'post' x.pk x.title|slugify %}">{{ x.title }}</a>
+          {{ story.title }}
         </div>
         <div class="scribblings">
-            {{ x.story|safe }}
+            {{ story.story|safe }}
         </div>
     </div>
     <hr>
-    {% endfor %}
 
     <center>
       <img src="http://imgs.xkcd.com/clickdrag/13n1e.png" width="50%">

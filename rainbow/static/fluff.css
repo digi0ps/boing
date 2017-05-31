@@ -5,6 +5,7 @@ html, body {
   color: #424242;
   margin: 0;
   -webkit-font-smoothing: subpixel-antialiased;
+  cursor: default;
 }
 
 .days {
@@ -27,6 +28,14 @@ html, body {
   color: #424242;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.title a:visited {
+  color: #424242;
+}
+
+.title a {
+  color: #424242;
 }
 
 .date {
@@ -52,6 +61,7 @@ a:visited {
 
 a {
   text-decoration: none;
+  color: #6534ff;
 }
 
 .caption {
@@ -69,6 +79,24 @@ a {
 .disclaimer {
   color: #7a7a7a;
   padding: 25px;
+}
+
+.favorite {
+  color: #C2185B;
+  vertical-align: -5px;
+}
+
+.favoriteNumber {
+  color: #C2185B;
+}
+
+.comments {
+  color: #00897B;
+  vertical-align: -5px;
+}
+
+.commentsNumber {
+  color: #00897B;
 }
 
 [v-cloak] {

@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home),
     url(r'^fluff/$', views.fluff, name='fluff'),
+    url(r'^fluff/(?P<post_id>\d{1,5})/(?P<slug>[-\w\d]+)?$$', views.post, name='post'),
+    url(r'^fluff/(?P<post_id>\d{1,5})-(?P<slug>[-\w\d]+)?$$', views.post, name='post'),
 ]
 
 if settings.DEBUG is True:
