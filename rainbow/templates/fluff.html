@@ -38,8 +38,14 @@
     {% for x in stories %}
     <div class="card">
         <div class="date"> {{ x.createdTime|date:"d M, Y" }}
-          <i class="material-icons favorite">favorite</i><span class="favoriteNumber">42</span>
-          <i class="material-icons comments">question_answer</i><span class="commentsNumber">73</span>
+          <a href="{% url 'post' x.pk x.title|slugify %}">
+            <i class="material-icons favorite">favorite</i>
+            <span class="favoriteNumber">42</span>
+          </a>
+          <a href="{% url 'post' x.pk x.title|slugify %}">
+            <i class="material-icons comments">question_answer</i>
+            <span class="commentsNumber">73</span>
+          </a>
         </div>
         <div class="title">
           <a href="{% url 'post' x.pk x.title|slugify %}">{{ x.title }}</a>
