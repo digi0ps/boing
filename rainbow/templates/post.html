@@ -26,11 +26,17 @@
       [ daysalive ] π [ pwning ]
     </div>
 
+    {% if request.user.is_superuser %}
+    <div class="superuser">
+      <a href="{% url 'edit' story.pk %}">Edit</a>
+      <a href="#">Archive</a>
+      <a href="#">Delete</a>
+    </div>
+    <a class="back" href="{% url 'boing' %}"><i class="material-icons">keyboard_arrow_left</i>Boing</a>
+    {% endif %}
+
     <div class="card">
-        <div class="date"> {{ story.createdTime|date:"d M, Y" }}
-          <i class="material-icons favorite">favorite</i><span class="favoriteNumber">&nbsp42</span>
-          <i class="material-icons comments">question_answer</i><span class="commentsNumber">&nbsp73</span>
-        </div>
+        <div class="date"> {{ story.createdTime|date:"d M, Y" }}</div>
         <div class="title">
           {{ story.title }}
         </div>

@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>my internet abode - Jeremy Philemon</title>
     <!-- Stylesheet -->
-    {% load static %}{% load pipeline %}{% stylesheet 'fluff' %}
+    {% load static %}{% load pipeline %}{% stylesheet 'fluff' %}{% stylesheet 'new' %}
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,44 +21,26 @@
       [ daysalive ] π [ pwning ]
     </div>
 
-    <div class="intro card">
-     Hey, I'm Jeremy.<br>
-     I've been doing some insane shizz since '98<br>
-     And this long? page<br>
-     is an attempt towards documenting them.<br><br>
-     (Scroll below)
-    </div>
+    {% if error is 1 %}
+      <center>Your edit failed .-. Try again?</center>
+    {% endif %}
 
-    <div class="intro disclaimer card">
-      Disclaimer: I prefer tabs over spaces,
-      three dots for an ellipsis,
-      and oxford commas k?
-    </div>
+    <a class="back" href="{% url 'boing' %}"><i class="material-icons">keyboard_arrow_left</i>Boing</a>
 
-    {% for x in stories %}
     <div class="card">
-        <div class="date"> {{ x.createdTime|date:"d M, Y" }}</div>
-        <div class="title">
-          <a href="{% url 'post' x.pk x.title|slugify %}">{{ x.title }}</a>
-        </div>
-        <div class="scribblings">
-            {{ x.story|safe }}
-        </div>
+      <form method="post" action="">
+        {% csrf_token %}
+        {{ form }}
+        <input class="submit" type="submit" value="Let the world know 💯"/>
+      </form>
     </div>
-    <hr>
-    {% endfor %}
-
-    <center>
-      <img src="http://imgs.xkcd.com/clickdrag/13n1e.png" width="50%">
-    </center>
-    <center>
-      Made with <img class="cardio" src="https://jeremyphilemon.github.io/blog/images/Heart.svg"> by Jeremy. <br><br>
-    </center>
+    <div v-html="compiledMarkdown"></div>
 
     <!-- jQuery, Vue & I -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     <script src="/static/vue.min.js"></script>
     {% javascript 'fluff' %}
+    {% javascript 'new' %}
   </body>
 </html>

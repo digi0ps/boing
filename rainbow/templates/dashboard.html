@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>my internet abode - Jeremy Philemon</title>
     <!-- Stylesheet -->
-    {% load static %}{% load pipeline %}{% stylesheet 'fluff' %}
+    {% load static %}{% load pipeline %}{% stylesheet 'fluff' %}{% stylesheet 'dashboard' %}
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,18 +21,14 @@
       [ daysalive ] π [ pwning ]
     </div>
 
-    <div class="intro card">
-     Hey, I'm Jeremy.<br>
-     I've been doing some insane shizz since '98<br>
-     And this long? page<br>
-     is an attempt towards documenting them.<br><br>
-     (Scroll below)
+    <div class="logout">
+      <a href="{% url 'logout' %}">Logout</a>
     </div>
 
-    <div class="intro disclaimer card">
-      Disclaimer: I prefer tabs over spaces,
-      three dots for an ellipsis,
-      and oxford commas k?
+    <div class="intro card">
+     <center>Welcome to your dashboard, Jeremy.<br>
+       <a href="{% url 'new' %}">+ New post</a>
+     </center>
     </div>
 
     {% for x in stories %}
@@ -41,18 +37,11 @@
         <div class="title">
           <a href="{% url 'post' x.pk x.title|slugify %}">{{ x.title }}</a>
         </div>
-        <div class="scribblings">
-            {{ x.story|safe }}
-        </div>
     </div>
-    <hr>
     {% endfor %}
 
     <center>
       <img src="http://imgs.xkcd.com/clickdrag/13n1e.png" width="50%">
-    </center>
-    <center>
-      Made with <img class="cardio" src="https://jeremyphilemon.github.io/blog/images/Heart.svg"> by Jeremy. <br><br>
     </center>
 
     <!-- jQuery, Vue & I -->

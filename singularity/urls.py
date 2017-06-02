@@ -23,8 +23,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home),
     url(r'^fluff/$', views.fluff, name='fluff'),
-    url(r'^fluff/(?P<post_id>\d{1,5})/(?P<slug>[-\w\d]+)?$$', views.post, name='post'),
-    url(r'^fluff/(?P<post_id>\d{1,5})-(?P<slug>[-\w\d]+)?$$', views.post, name='post'),
+    url(r'^fluff/(?P<postId>\d{1,5})/edit$', views.edit, name='edit'),
+    url(r'^fluff/(?P<postId>\d{1,5})/(?P<slug>[-\w\d]+)?$', views.post, name='post'),
+    url(r'^fluff/(?P<postId>\d{1,5})-(?P<slug>[-\w\d]+)?$', views.post, name='post'),
+    url(r'^boing/$', views.dashboard, name='boing'),
+    url(r'^logout/$', views.logoutView, name='logout'),
+    url(r'^andgodsaidlettherebelight/$', views.new, name='new'),
 ]
 
 if settings.DEBUG is True:

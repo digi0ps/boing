@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>My internet abode - Jeremy Philemon</title>
+    <!-- Stylesheet -->
+    {% load static %}{% load pipeline %}{% stylesheet 'login' %}
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500|Product+Sans:400" rel="stylesheet">
+    {% include "favicon.html" %}
+  </head>
+
+  <body>
+    <div class="days" v-cloak>
+      <strong>[ daysalive ] π [ pwning ]</strong>
+    </div>
+    <div class="cardio">
+      <img src="https://jeremyphilemon.github.io/blog/images/Heart.svg">
+    </div>
+
+    <div class="parent">
+      <div class="header card">
+        <form method="post" action="">
+          {% csrf_token %}
+          {{ form }}
+          <input class="submit" type="submit" value="Let's do this!"/>
+        </form>
+        {% if error is 1 %}
+        <p class="validator">You mistyped something bro?</p>
+        {% endif %}
+      </div>
+      <!--<img src="https://s3.ap-south-1.amazonaws.com/intellectualdude/Photos/balloon.jpg" width="30%">-->
+    </div>
+
+    <!-- What is life? -->
+
+    <!-- jQuery, Vue & I -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+    <script src="/static/vue.min.js"></script>
+    {% javascript 'home' %}
+  </body>
+</html>

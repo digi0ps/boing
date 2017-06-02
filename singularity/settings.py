@@ -159,6 +159,24 @@ PIPELINE = {
             ),
             'output_filename': 'fluff.css',
         },
+        'login': {
+            'source_filenames': (
+              'login.css',
+            ),
+            'output_filename': 'login.css',
+        },
+        'dashboard': {
+            'source_filenames': (
+              'dashboard.css',
+            ),
+            'output_filename': 'dashboard.css',
+        },
+        'new': {
+            'source_filenames': (
+              'new.css',
+            ),
+            'output_filename': 'new.css',
+        },
     },
     'JAVASCRIPT': {
         'home': {
@@ -172,6 +190,12 @@ PIPELINE = {
               'fluff.js',
             ),
             'output_filename': 'fluff.js',
+        },
+        'new': {
+            'source_filenames': (
+              'new.js',
+            ),
+            'output_filename': 'new.js',
         },
     }
 }

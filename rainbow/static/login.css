@@ -1,0 +1,102 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Product Sans', arial, sans-serif;
+  font-weight: 400;
+  background-color: #ffffff;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  cursor: default;
+  font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  -webkit-font-feature-settings: "kern" 1;
+}
+
+p {
+  margin: 0;
+  line-height: 50px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.cardio {
+  position: absolute;
+  right: 0;
+  margin: 5px;
+  color: #424242;
+}
+
+.parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.header {
+  font-size: 42px;
+  color: #424242;
+  padding: 20px;
+}
+
+.overlay .parent {
+  margin: 20px;
+}
+
+.days {
+  position: absolute;
+  padding-left: 2px;
+  font-size: 10px;
+  color: #7a7a7a;
+}
+
+.helptext {
+  display: none;
+}
+
+label {
+  display: block;
+  font-size: 20px;
+}
+
+input {
+  font-size: 30px;
+  font-family: 'Product Sans', arial, sans-serif;
+  color: #424242;
+  margin-bottom: 5px;
+  border-style: solid;
+  border-color: #69F0AE;
+}
+
+.submit {
+  margin-bottom: 0;
+  background: #00E676;
+  color: #fafafa;
+  border: none;
+  cursor: pointer;
+}
+
+.validator {
+  color: #F50057;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+@media (max-width: 479px) and (min-width: 320px) {
+  .header {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 320px) {
+  .header {
+    font-size: 30px;
+  }
+}

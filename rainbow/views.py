@@ -1,4 +1,10 @@
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, get_object_or_404
+from django.template.defaultfilters import slugify
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+from rainbow.forms import loginForm, newForm
+from django.contrib.auth.models import User
 from rainbow.models import story
 
 # Create your views here.
@@ -13,6 +19,78 @@ def fluff(request):
     return render(request, 'fluff.html', {'stories': stories, })
 
 
-def post(request, post_id, slug=""):
-    storyInstance = story.objects.get(pk=post_id)
+def post(request, postId, slug=""):
+    storyInstance = story.objects.get(pk=postId)
     return render(request, 'post.html', {'story': storyInstance, })
+
+
+def dashboard(request):
+    form = loginForm()
+    stories = story.objects.all().order_by('-createdTime')
+    if request.method == 'POST' and request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+        try:
+            user = User._default_manager.get(username__iexact=username)
+            user_auth = authenticate(username=user.username, password=password)
+        except User.DoesNotExist:
+            user_auth = None
+        if user_auth is not None:
+            login(request, user_auth)
+            return HttpResponseRedirect(reverse('boing'))
+        else:
+            error = 1
+            return render(request, 'login.html', {'form': form, 'error': error})
+    if request.method == 'GET':
+        if request.user.is_authenticated:
+            return render(request, 'dashboard.html', {'stories': stories})
+        else:
+            return render(request, 'login.html', {'form': form, })
+
+
+def logoutView(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('boing'))
+
+
+def new(request):
+    form = newForm()
+    error = 0
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('fluff'))
+    if request.method == 'POST' and request.POST:
+        submittedForm = newForm(request.POST)
+        if submittedForm.is_valid():
+            instance = submittedForm.save(commit=False)
+            instance.save()
+            return HttpResponseRedirect("/fluff/" + str(instance.pk) + "-" + str(slugify(instance.title)))
+        else:
+            error = 1
+            return render(request, 'new.html', {'form': submittedForm, 'error': error})
+    else:
+        return render(request, 'new.html', {'form': form})
+
+
+def edit(request, postId):
+    error = 0
+    postRequested = get_object_or_404(story, pk=postId)
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('fluff'))
+    if request.method == 'POST' and request.POST:
+        updatedForm = newForm(request.POST)
+        if updatedForm.is_valid():
+            postRequested.title = request.POST['title']
+            postRequested.createdTime = request.POST['createdTime']
+            postRequested.story = request.POST['story']
+            postRequested.save()
+            return HttpResponseRedirect("/fluff/" + str(postRequested.pk) + "-" + str(slugify(postRequested.title)))
+        else:
+            error = 1
+            return render(request, 'new.html', {'form': updatedForm, 'error': error})
+    else:
+        data = {'title': postRequested.title,
+                'createdTime': postRequested.createdTime,
+                'story': postRequested.story,
+                }
+        form = newForm(data)
+        return render(request, 'new.html', {'form': form})
