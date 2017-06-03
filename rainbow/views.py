@@ -110,7 +110,7 @@ def concoct(request):
         uploadedForm = uploadForm(request.POST, request.FILES)
         if uploadedForm.is_valid():
             fileName = request.FILES['file'].name
-            s3 = boto3.client('s3')
+            s3 = boto3.resource('s3')
             data = request.FILES['file']
             s3.Bucket('intellectualdude').put_object(Key='Photos/' + str(fileName),
                                                      Body=data,
