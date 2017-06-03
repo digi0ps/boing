@@ -14,10 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.conf.urls import url
+from django.conf.urls import url, include
+from rest_framework import routers
 from django.contrib import admin
-from rainbow import views
 from singularity import settings
+from rainbow import views
+from api import apiViews
+
+# REST API
+
+router = routers.DefaultRouter()
+router.register(r'stories', apiViews.storyViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,6 +36,8 @@ urlpatterns = [
     url(r'^boing/$', views.dashboard, name='boing'),
     url(r'^logout/$', views.logoutView, name='logout'),
     url(r'^andgodsaidlettherebelight/$', views.new, name='new'),
+    url(r'^', include(router.urls)),
+    url(r'^apiAuth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG is True:
