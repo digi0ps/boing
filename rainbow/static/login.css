@@ -71,6 +71,7 @@ input {
   margin-bottom: 5px;
   border-style: solid;
   border-color: #69F0AE;
+  -webkit-appearance: none;
 }
 
 .submit {

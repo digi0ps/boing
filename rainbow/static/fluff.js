@@ -31,3 +31,11 @@ var daysalive  = new Vue({
 
 window.sr = ScrollReveal({reset: true, viewFactor: 0.05,});
 sr.reveal('.card');
+
+$(function() {
+     $("input:file").change(function (){
+       var fileName = $('input[type=file]').val().replace(/C:\\fakepath\\/i, '');
+       $(".labelJS").html(fileName);
+       $(".submit").show();
+     });
+  });

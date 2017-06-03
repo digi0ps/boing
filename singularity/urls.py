@@ -1,4 +1,4 @@
-"""singularity URL Configuration
+"""singularity URL Configuration.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^fluff/(?P<postId>\d{1,5})/(?P<slug>[-\w\d]+)?$', views.post, name='post'),
     url(r'^fluff/(?P<postId>\d{1,5})-(?P<slug>[-\w\d]+)?$', views.post, name='post'),
     url(r'^boing/$', views.dashboard, name='boing'),
+    url(r'^concoct/$', views.concoct, name='concoct'),
     url(r'^logout/$', views.logoutView, name='logout'),
     url(r'^andgodsaidlettherebelight/$', views.new, name='new'),
 ]

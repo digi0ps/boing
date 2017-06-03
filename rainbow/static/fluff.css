@@ -123,6 +123,7 @@ i.material-icons {
   float: left;
   margin-top: -42px;
   padding-left: 10px;
+  z-index: 10;
 }
 
 .back .material-icons {
@@ -133,6 +134,56 @@ form {
   margin-top: 30px;
 }
 
+.uploadForm {
+  margin-top: 10px;
+}
+
+.upload {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.upload + label {
+    cursor: pointer;
+}
+
+.submit {
+  border-style: solid;
+  color: #6534ff;
+  border: none;
+  font-size: 16px;
+  background: #ffffff;
+  cursor: pointer;
+  display: none;
+}
+
+.link {
+  width: 600px;
+  word-wrap: break-word;
+}
+
+i.material-icons.uploadDone {
+  font-size: 42px;
+  color: #009688;
+}
+
+.uploadBack {
+  position: absolute;
+  left: 0px;
+  margin-top: 20px;
+  padding-left: 10px;
+  z-index: 10;
+  padding: 0;
+}
+
+.labelJS {
+  display: hidden;
+}
+
 [v-cloak] {
   display: none;
 }
@@ -140,5 +191,11 @@ form {
 @media (min-width: 479px) {
   .card {
     width: 600px;
+  }
+}
+
+@media (max-width: 479px) {
+  .link {
+    width: 350px;
   }
 }

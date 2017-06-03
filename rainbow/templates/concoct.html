@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>my internet abode - Jeremy Philemon</title>
     <!-- Stylesheet -->
-    {% load static %}{% load pipeline %}{% stylesheet 'fluff' %}{% stylesheet 'new' %}
+    {% load static %}{% load pipeline %}{% stylesheet 'fluff' %}
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,26 +21,31 @@
       [ daysalive ] π [ pwning ]
     </div>
 
-    {% if error is 1 %}
-      <center>Your edit failed .-. Try again?</center>
-    {% endif %}
+    <a class="card back uploadBack" href="{% url 'boing' %}"><i class="material-icons">keyboard_arrow_left</i>Boing</a>
 
-    <a class="card back" href="{% url 'boing' %}"><i class="material-icons">keyboard_arrow_left</i>Boing</a>
-
-    <div class="card">
-      <form method="post" action="">
-        {% csrf_token %}
-        {{ form }}
-        <input class="submit" type="submit" value="Let the world know 💯"/>
-      </form>
+    <div class="intro card">
+      <center>
+        <form class="uploadForm" method="post" action="" enctype="multipart/form-data">
+          {% csrf_token %} {{ form }} {% if not link %}
+          <label for="id_file"><i class="material-icons">cloud_upload</i></label><br>
+          <span class="labelJS"></span>
+          <input class="submit" type="submit" value="Upload this shit." /> {% else %}
+          <i class="material-icons uploadDone">cloud_done</i><br> Your link: <br>
+          <div class="link">
+            <a href="{{ link }}">
+                  {{ link }}
+                </a>
+          </div>
+          {% endif %}
+        </form>
+      </center>
     </div>
-    <div v-html="compiledMarkdown"></div>
+
 
     <!-- jQuery, Vue & I -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     <script src="/static/vue.min.js"></script>
     {% javascript 'fluff' %}
-    {% javascript 'new' %}
   </body>
 </html>

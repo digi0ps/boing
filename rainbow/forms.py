@@ -13,11 +13,17 @@ class loginForm(ModelForm):
 
 
 class newForm(ModelForm):
-    createdTime = forms.DateField(widget=forms.DateInput(), label="Date (mm/dd/yyyy)")
+    createdTime = forms.DateField(widget=forms.DateInput(),
+                                  label="Date (mm/dd/yyyy)")
     story = forms.CharField(widget=forms.Textarea(attrs={':value': 'input',
                                                          '@input': 'update',
-                                                         }), label="The magic")
+                                                         }
+                                                  ), label="The magic")
 
     class Meta:
         model = story
         fields = ['title', 'createdTime', 'story', ]
+
+
+class uploadForm(forms.Form):
+    file = forms.FileField(label="", widget=forms.FileInput(attrs={'class': 'upload'}))

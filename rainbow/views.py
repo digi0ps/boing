@@ -1,11 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
+from rainbow.forms import loginForm, newForm, uploadForm
 from django.shortcuts import render, get_object_or_404
 from django.template.defaultfilters import slugify
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
-from rainbow.forms import loginForm, newForm
 from django.contrib.auth.models import User
 from rainbow.models import story
+import boto3
 
 # Create your views here.
 
@@ -94,3 +95,23 @@ def edit(request, postId):
                 }
         form = newForm(data)
         return render(request, 'new.html', {'form': form})
+
+
+def concoct(request):
+    form = uploadForm()
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('fluff'))
+    if request.method == 'POST' and request.POST:
+        uploadedForm = uploadForm(request.POST, request.FILES)
+        if uploadedForm.is_valid():
+            fileName = request.FILES['file'].name
+            s3 = boto3.resource('s3')
+            data = request.FILES['file']
+            s3.Bucket('intellectualdude').put_object(Key='Photos/' + str(fileName),
+                                                     Body=data,
+                                                     ACL='public-read',
+                                                     ServerSideEncryption='AES256')
+            link = "https://s3.ap-south-1.amazonaws.com/intellectualdude/Photos/" + str(fileName).replace(" ", "+")
+            return render(request, 'concoct.html', {'link': link})
+    else:
+        return render(request, 'concoct.html', {'form': form})
