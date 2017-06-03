@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls import url
 from django.contrib import admin
-from rainbow import views
 from singularity import settings
+from rainbow import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
