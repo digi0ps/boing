@@ -111,8 +111,8 @@ def concoct(request):
         if uploadedForm.is_valid():
             fileName = request.FILES['file'].name
             s3 = boto3.resource('s3',
-                                aws_access_key_id=AWS_ACCESS_ID,
-                                aws_secret_access_key=AWS_SECRET_KEY)
+                                aws_access_key_id=awsAuth.AWS_ACCESS_ID,
+                                aws_secret_access_key=awsAuth.AWS_SECRET_KEY)
             data = request.FILES['file']
             s3.Bucket('intellectualdude').put_object(Key='Photos/' + str(fileName),
                                                      Body=data,
