@@ -5,6 +5,7 @@ from django.template.defaultfilters import slugify
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from botocore.client import Config
 from rainbow.models import story
 import boto3
 
@@ -112,7 +113,8 @@ def concoct(request):
             fileName = request.FILES['file'].name
             s3 = boto3.resource('s3',
                                 aws_access_key_id=awsAuth.AWS_ACCESS_ID,
-                                aws_secret_access_key=awsAuth.AWS_SECRET_KEY)
+                                aws_secret_access_key=awsAuth.AWS_SECRET_KEY,
+                                config=Config(signature_version='s3v4'))
             data = request.FILES['file']
             s3.Bucket('intellectualdude').put_object(Key='Photos/' + str(fileName),
                                                      Body=data,
