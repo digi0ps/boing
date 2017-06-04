@@ -14,8 +14,6 @@ try:
 except ImportError:
     pass
 
-# Create your views here.
-
 
 def home(request):
     return render(request, 'home.html')
@@ -105,7 +103,8 @@ def edit(request, postId):
 
 def concoct(request):
     form = uploadForm()
-    if not request.user.is_authenticated:
+    linkPrepend = "https://s3.ap-south-1.amazonaws.com/intellectualdude/Photos/"
+    if not request.user.is_superuser:
         return HttpResponseRedirect(reverse('fluff'))
     if request.method == 'POST' and request.POST:
         uploadedForm = uploadForm(request.POST, request.FILES)
@@ -120,7 +119,24 @@ def concoct(request):
                                                      Body=data,
                                                      ACL='public-read',
                                                      ServerSideEncryption='AES256')
-            link = "https://s3.ap-south-1.amazonaws.com/intellectualdude/Photos/" + str(fileName).replace(" ", "+")
+            link = linkPrepend + str(fileName).replace(" ", "+")
             return render(request, 'concoct.html', {'link': link})
     else:
         return render(request, 'concoct.html', {'form': form})
+
+
+def visualFluff(request):
+    if not request.user.is_superuser:
+        return HttpResponseRedirect(reverse('fluff'))
+    else:
+        visualFluffs = []
+        linkPrepend = "https://s3.ap-south-1.amazonaws.com/intellectualdude/"
+        s3 = boto3.resource('s3',
+                            aws_access_key_id=awsAuth.AWS_ACCESS_ID,
+                            aws_secret_access_key=awsAuth.AWS_SECRET_KEY,
+                            config=Config(signature_version='s3v4'))
+        bucket = s3.Bucket('intellectualdude')
+        for obj in bucket.objects.filter(Prefix='Photos/'):
+            visualFluffs.append(linkPrepend + str(obj.key).replace(" ", "+"))
+        visualFluffs = visualFluffs[1:]
+        return render(request, 'visual.html', {'visualFluffs': visualFluffs})

@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,800" rel="stylesheet">
+    {% stylesheet 'visual' %}
     {% include "favicon.html" %}
   </head>
 
@@ -24,23 +25,16 @@
     <a class="card back uploadBack" href="{% url 'boing' %}"><i class="material-icons">keyboard_arrow_left</i>Boing</a>
 
     <div class="intro card">
-      <center>
-        <form class="uploadForm" method="post" action="" enctype="multipart/form-data">
-          {% csrf_token %} {{ form }} {% if not link %}
-          <label for="id_file"><i class="material-icons">cloud_upload</i></label><br>
-          <span class="labelJS"></span>
-          <input class="submitConcoct" type="submit" value="Upload this shit." /> {% else %}
-          <i class="material-icons uploadDone">cloud_done</i><br> Your link: <br>
-          <div class="link">
-            <a href="{{ link }}">
-                  {{ link }}
-                </a>
-          </div>
-          {% endif %}
-        </form>
-      </center>
+      Your uploads
+      (Scroll below)
     </div>
 
+    {% for media in visualFluffs %}
+      <div class="card">
+        <img src="{{ media }}">
+        <a href="{{ media }}" class="caption">{{ media }}</a>
+      </div>
+    {% endfor %}
 
     <!-- jQuery, Vue & I -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

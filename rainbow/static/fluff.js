@@ -36,6 +36,6 @@ $(function() {
      $("input:file").change(function (){
        var fileName = $('input[type=file]').val().replace(/C:\\fakepath\\/i, '');
        $(".labelJS").html(fileName);
-       $(".submit").show();
+       $(".submitConcoct").show();
      });
   });

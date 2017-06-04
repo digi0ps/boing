@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^concoct/$', views.concoct, name='concoct'),
     url(r'^logout/$', views.logoutView, name='logout'),
     url(r'^andgodsaidlettherebelight/$', views.new, name='new'),
+    url(r'^visualfluff/$', views.visualFluff, name='visual'),
 ]
 
 if settings.DEBUG is True:
