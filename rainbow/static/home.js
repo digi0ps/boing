@@ -95,6 +95,3 @@ var daysalive  = new Vue({
     pwning: milli2days(present - nf)
   }
 });
-
-window.sr = ScrollReveal();
-sr.reveal('.card');
