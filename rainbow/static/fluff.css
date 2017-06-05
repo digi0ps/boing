@@ -67,6 +67,7 @@ a {
 .caption {
     font-size: 0.75em;
     color: #7a7a7a;
+    word-wrap: break-word;
 }
 
 .intro {
@@ -79,6 +80,7 @@ a {
 .disclaimer {
   color: #7a7a7a;
   padding: 25px;
+  text-align: center;
 }
 
 .favorite {
@@ -121,7 +123,7 @@ i.material-icons {
 
 .back {
   float: left;
-  margin-top: -42px;
+  margin-top: -43px;
   padding-left: 10px;
   z-index: 10;
 }

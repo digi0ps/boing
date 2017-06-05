@@ -7,6 +7,7 @@ textarea {
   border-color: #6534ff;
   border-width: 2px;
   font-size: 20px;
+  border-radius: 0;
   -webkit-appearance: none;
 }
 
@@ -24,6 +25,7 @@ input {
   border-style: solid;
   border-color: #6534ff;
   width: calc(100% - 6px);
+  border-radius: 0;
   -webkit-appearance: none;
 }
 
@@ -37,6 +39,8 @@ input {
   font-size: 15px;
   height: 40px;
   cursor: pointer;
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 
 .back {
