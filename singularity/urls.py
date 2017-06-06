@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^logout/$', views.logoutView, name='logout'),
     url(r'^andgodsaidlettherebelight/$', views.new, name='new'),
     url(r'^visualfluff/$', views.visualFluff, name='visual'),
+    url(r'^eargasm/$', views.eargasm, name='eargasm'),
 ]
 
 if settings.DEBUG is True:

@@ -140,3 +140,17 @@ def visualFluff(request):
             visualFluffs.append(linkPrepend + str(obj.key).replace(" ", "+"))
         visualFluffs = visualFluffs[1:]
         return render(request, 'visual.html', {'visualFluffs': visualFluffs})
+
+
+def eargasm(request):
+    from spotipy.oauth2 import SpotifyClientCredentials
+    import spotipy
+    from pprint import pprint
+    username = 'intellectualdude'
+    client_credentials_manager = SpotifyClientCredentials(client_id='60e3c684717e49a38e2a775544d77be1',
+                                                          client_secret='716bf14412514fc8bc805be9a6973da4')
+    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+    selectedPlaylist = sp.user_playlist(username, '2eMLFaeFv4mU8kzq846KNK', fields="tracks")
+    tracks = selectedPlaylist['tracks']['items']
+    pprint(tracks)
+    return render(request, 'eargasm.html', {'tracks': tracks})
