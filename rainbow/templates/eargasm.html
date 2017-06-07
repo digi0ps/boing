@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>my internet abode - Jeremy Philemon</title>
     <!-- Stylesheet -->
-    {% load static %}{% load pipeline %}{% stylesheet 'fluff' %}
+    {% load static %}{% load pipeline %}{% stylesheet 'fluff' %}{% stylesheet 'eargasm' %}
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:500" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,11 +21,25 @@
       [ daysalive ] π [ pwning ]
     </div>
 
+    <a class="card back" href="{% url 'fluff' %}"><i class="material-icons">keyboard_arrow_left</i>blog</a>
+
+    <div class="intro disclaimer card">
+      <center>
+        My playlist of good music.
+        <a class="spotify" href="https://open.spotify.com/embed/user/intellectualdude/playlist/2eMLFaeFv4mU8kzq846KNK">
+          For those with Spotify.
+        </a>
+      </center>
+    </div>
+
     {% for x in tracks %}
     <div class="card">
-      <div class="caption">
+      <div class="trackParent">
         <img src="{{ x.track.album.images.0.url }}">
-        {{ x.track.name }} - {{ x.track.artists.0.name }}
+        <div class="caption">
+          <a class="trackName" href="{{ x.track.external_urls.spotify }}">{{ x.track.name }}</a><br>
+          <a class="trackArtist" href="{{ x.track.artists.0.external_urls.spotify }}">{{ x.track.artists.0.name }}</a>
+        </div>
       </div>
     </div>
     {% endfor %}

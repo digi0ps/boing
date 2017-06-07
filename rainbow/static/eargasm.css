@@ -1,0 +1,45 @@
+.back {
+  margin-top: 0;
+  color: #1ED760;
+  position: absolute;
+}
+
+.back:visited {
+  color: #1ED760;
+}
+
+.spotify {
+  color: #1ED760;
+}
+
+.spotify:visited {
+  color: #1ED760;
+}
+
+.caption {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+  font-size: 15px;
+  display: inline;
+}
+
+.card img {
+  width: 25%;
+  height: 25%;
+}
+
+.trackParent {
+  display: flex;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.trackName {
+  font-size: 17px;
+  color: #1ED760;
+}
+
+.trackArtist {
+  color: #7a7a7a;
+}

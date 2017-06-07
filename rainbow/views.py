@@ -152,5 +152,6 @@ def eargasm(request):
     sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
     selectedPlaylist = sp.user_playlist(username, '2eMLFaeFv4mU8kzq846KNK', fields="tracks")
     tracks = selectedPlaylist['tracks']['items']
-    # pprint(tracks)
+    tracks = tracks[::-1]
+    pprint(tracks)
     return render(request, 'eargasm.html', {'tracks': tracks})

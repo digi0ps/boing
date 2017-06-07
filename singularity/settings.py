@@ -181,6 +181,12 @@ PIPELINE = {
             ),
             'output_filename': 'new.css',
         },
+        'eargasm': {
+            'source_filenames': (
+              'eargasm.css',
+            ),
+            'output_filename': 'eargasm.css',
+        },
     },
     'JAVASCRIPT': {
         'home': {

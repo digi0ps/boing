@@ -15,6 +15,14 @@ html, body {
   color: #7a7a7a;
 }
 
+.eargasm {
+  position: absolute;
+  font-size: 10px;
+  right: 0;
+  color: #1ED760;
+  margin-right: 5px;
+}
+
 .card {
   display: block;
   margin-left: auto;
@@ -126,6 +134,7 @@ i.material-icons {
   margin-top: -43px;
   padding-left: 10px;
   z-index: 10;
+  cursor: pointer;
 }
 
 .back .material-icons {
@@ -193,6 +202,14 @@ i.material-icons.uploadDone {
 
 .labelJS {
   display: hidden;
+}
+
+.spotify {
+  color: #1ED760;
+}
+
+.spotify:visited {
+  color: #1ED760;
 }
 
 [v-cloak] {
