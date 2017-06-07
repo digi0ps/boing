@@ -145,7 +145,6 @@ def visualFluff(request):
 def eargasm(request):
     from spotipy.oauth2 import SpotifyClientCredentials
     import spotipy
-    from pprint import pprint
     username = 'intellectualdude'
     client_credentials_manager = SpotifyClientCredentials(client_id='60e3c684717e49a38e2a775544d77be1',
                                                           client_secret='716bf14412514fc8bc805be9a6973da4')
@@ -153,5 +152,4 @@ def eargasm(request):
     selectedPlaylist = sp.user_playlist(username, '2eMLFaeFv4mU8kzq846KNK', fields="tracks")
     tracks = selectedPlaylist['tracks']['items']
     tracks = tracks[::-1]
-    pprint(tracks)
     return render(request, 'eargasm.html', {'tracks': tracks})

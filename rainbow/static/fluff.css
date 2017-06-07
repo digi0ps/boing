@@ -226,4 +226,7 @@ i.material-icons.uploadDone {
   .link {
     width: 350px;
   }
+  .title {
+    font-size: 45px;
+  }
 }
