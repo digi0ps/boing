@@ -5,7 +5,7 @@ certifi==2017.4.17
 chardet==3.0.4
 contextlib2==0.5.5
 cssmin==0.2.0
-Django==1.11.1
+Django==1.11.2
 django-filter==1.0.4
 django-pipeline==1.6.12
 django-storages==1.5.2
