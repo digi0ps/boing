@@ -21,6 +21,7 @@ html, body {
   right: 0;
   color: #1ED760;
   margin-right: 5px;
+  z-index: 4;
 }
 
 .card {

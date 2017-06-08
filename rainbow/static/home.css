@@ -8,8 +8,8 @@ body {
   background-color: #fafafa;
   height: 100%;
   margin: 0;
-  overflow: hidden;
   cursor: default;
+  overflow: hidden;
   font-smoothing: antialiased;
   text-rendering: geometricPrecision;
   -webkit-font-feature-settings: "kern" 1;
@@ -167,6 +167,47 @@ i.computer {
 
 [v-cloak] {
   display: none;
+}
+
+.scrollDown {
+  visibility: hidden;
+}
+
+.introHome {
+  display: none;
+}
+
+.scrollText {
+  display: none;
+}
+
+@media (max-width: 769px) {
+  body {
+    letter-spacing: -1.5px;
+    overflow: visible;
+  }
+  a.tamil {
+    display: none;
+  }
+  .scrollDown {
+    align-self: flex-end;
+    color: #424242;
+    visibility: visible;
+  }
+  .introHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 40px);
+    color: #fafafa;
+    font-size: 2em;
+    word-wrap: break-word;
+    visibility: visible;
+  }
+  a.scrollText {
+    display: block;
+    color: #fafafa;
+  }
 }
 
 @media (max-width: 479px) and (min-width: 320px) {

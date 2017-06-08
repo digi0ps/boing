@@ -14,7 +14,7 @@ class loginForm(ModelForm):
 
 class newForm(ModelForm):
     createdTime = forms.DateField(widget=forms.DateInput(),
-                                  label="Date (mm/dd/yyyy)")
+                                  label="Date (YYYY-MM-DD)")
     story = forms.CharField(widget=forms.Textarea(attrs={':value': 'input',
                                                          '@input': 'update',
                                                          }

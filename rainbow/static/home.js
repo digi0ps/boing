@@ -45,7 +45,7 @@ var jargon = new Vue({
         }
         else if(dingdong == 'blog') {
           overlay.message = 'Read my stories and ramblings';
-          overlay.bgcolor = '#76FF03';
+          overlay.bgcolor = '#1ED760';
           overlay.align = 'center';
           overlay.textalign = 'right';
         }
@@ -95,3 +95,6 @@ var daysalive  = new Vue({
     pwning: milli2days(present - nf)
   }
 });
+
+window.sr = ScrollReveal({reset: true, viewFactor: 0.05,});
+sr.reveal('.scrollText');
