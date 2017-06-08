@@ -184,6 +184,7 @@ i.computer {
 @media (max-width: 768px) {
   body {
     overflow: visible;
+    letter-spacing: -1.5px;
   }
   a.tamil {
     display: none;
@@ -215,6 +216,9 @@ i.computer {
   }
   .photoCaption {
     margin-bottom: 73px;
+  }
+  p {
+    line-height: 42px;
   }
 }
 
