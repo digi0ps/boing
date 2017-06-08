@@ -184,7 +184,6 @@ i.computer {
 @media (max-width: 768px) {
   body {
     overflow: visible;
-    -webkit-text-stroke: 0.5px;
   }
   a.tamil {
     display: none;
