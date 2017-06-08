@@ -181,10 +181,10 @@ i.computer {
   display: none;
 }
 
-@media (max-width: 769px) {
+@media (max-width: 768px) {
   body {
-    letter-spacing: -1.5px;
     overflow: visible;
+    -webkit-text-stroke: 0.5px;
   }
   a.tamil {
     display: none;
@@ -193,6 +193,7 @@ i.computer {
     align-self: flex-end;
     color: #424242;
     visibility: visible;
+    position: absolute;
   }
   .introHome {
     display: flex;
@@ -207,6 +208,14 @@ i.computer {
   a.scrollText {
     display: block;
     color: #fafafa;
+    text-align: center;
+  }
+  .overlay {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  .photoCaption {
+    margin-bottom: 73px;
   }
 }
 
