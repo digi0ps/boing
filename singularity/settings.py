@@ -26,7 +26,7 @@ SECRET_KEY = '*47q7sli(1g)v1-5ab9z+be+@8m#cu50z54(@_4t-46#z-0_@0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['anotherdude.me', '139.59.64.176']
 PREPEND_WWW = False
 
 
